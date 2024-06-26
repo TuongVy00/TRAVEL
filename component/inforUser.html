@@ -1,0 +1,106 @@
+<style>
+    /* Ẩn thanh cuộn ngang cho input file */
+    input[type="file"]::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    input[type="file"] {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    input[type="file"]+label {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        display: inline-block;
+    }
+</style>
+<section class=" hero-wrap-2 js-fullheight"
+    style="background-image: url('images/bg_4.jpg');height: 40rem; background-color: rgba(0, green, blue, alpha);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="col-md-9  pb-5 text-center" style="margin-top: 30rem;">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ <i
+                                class="fa fa-chevron-right"></i></a></span> <span>Thông Tin <i
+                            class="fa fa-chevron-right"></i></span></p>
+                <h1 class="mb-0 bread">Thông tin</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container" ng-controller="inforUserController" style="width: 80%; margin: 0 auto;">
+    <br>
+    <h1 style="text-align: center;">Thông tin</h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <form>
+                <div class="form-group">
+                    <label>{{language.in4_fullname}}</label>
+                    <input type="text" ng-model="in4.account.fullname" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label>{{language.in4_passport}}</label>
+                    <input type="text" class="form-control" ng-model="in4.cccd" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" ng-model="in4.email" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label>{{language.in4_phone}}</label>
+                    <input type="text" class="form-control" ng-model="in4.numberphone" disabled>
+                </div>
+                <div class="form-group">
+                    <label>{{language.in4_nametour}}</label>
+                    <input type="text" ng-model="in4.plantour.tour.title" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="member">{{language.in4_member}}</label>
+                    <input class="form-control" ng-model="in4.member" disabled>
+                </div>
+                <div class="form-group">
+                    <label >{{language.in4_startday}} </label>
+                    <input type="text" ng-model="in4.plantour.stardate |  date:'dd/MM/yyyy' " class="form-control"  disabled>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">{{language.in4_endday}} </label>
+                    <input type="text" ng-model="in4.plantour.enddate |  date:'dd/MM/yyyy' " class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="member">{{language.in4_all}} *VNĐ</label>
+                    <input type="text" class="form-control" id="member" ng-model="in4.price | currency:'':0" disabled 
+                        required>
+                </div>
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-primary " ng-click="delete(in4.id)">
+                        HỦY VÉ <i class="fa-solid fa-trash"></i></button>
+                    <a href="#!tourdetail/{{in4.plantour.tour.id}}" class="btn btn-success " >XEM CHI TIẾT <i class="fa-solid fa-eye"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group" style="margin-top: 8%;">
+                <label for="member">{{language.in4_note}}</label>
+                <textarea class="form-control" name="" id="" ng-model="in4.plantour.description" cols="20" rows="10"></textarea>
+            </div>
+            <div class="form-group center" style=" margin: 0 auto; ">
+                <img class="" src="{{in4.plantour.tour.images.split(',')[4]}}" alt=""
+                    style="max-width: 90%; margin-left: 5%; border-radius: 5px;">
+            </div>
+            <div class="qr-profile">
+                <img src="{{in4.qrcode}}" alt="">
+            </div>
+        </div>
+
+    </div>
+    <br>
+</div>
+
+</div>
+</div>

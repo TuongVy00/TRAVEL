@@ -1,0 +1,103 @@
+
+<div ng-controller="mainController">
+
+  <div class=" js-fullheight" style="background: url('images/banner1.png') no-repeat;height: 50rem; opacity: 0.8;  ">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+        <div class="col-md-7 " style="margin-top: 10rem;">
+          <span class="subheading" >{{language.home_welcome}}</span>
+          <h1 class="mb-4" style="color: #FF6C22; font-size: 4rem;">{{language.home_stt}}</h1>
+          <p class="caps" >{{language.home_wc}}</p>
+          <p class="mb-4">{{ today.name}}, {{today.location}}, <span style="color: rgb(141, 141, 227);">{{today.status}}</span> , {{today.C}} độ C </p>
+        </div>
+        <a data-toggle="modal" data-target="#exampleModal"
+          class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+          <span class="fa fa-play"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center pb-4">
+        <div class="col-md-12 heading-section text-center ">
+          <span class="subheading">{{language.home_tourhot}}</span>
+          <h2 class="mb-4">{{language.home_tour_title}}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 " ng-repeat="item in tourOutstanding">
+          <div class="project-wrap">
+              <a href="#!tourdetail/{{item.id}}" class="img" style="background-image: url({{item.images[3]}});">
+                  <span class="price">{{item.price | currency:'VNĐ ':0 }}</span>
+              </a>
+              <div class="text p-4">
+                 
+                  <h3><a href="#!tourdetail/{{item.id}}">{{item.title}}</a></h3>
+                  <p class="location"><span class="fa fa-map-marker"></span> {{item.location}}</p>
+                  <ul>
+                      <li><span class="flaticon-shower"></span>2</li>
+                      <li><span class="flaticon-king-size"></span>3</li>
+                      <li><span class="flaticon-mountains"></span></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section ftco-about img" style="background-image: url(images/bg_4.jpg);">
+    <div class="overlay"></div>
+    <div class="container py-md-5">
+      <div class="row py-md-5">
+        <div class="col-md d-flex align-items-center justify-content-center">
+          <a href="https://vimeo.com/45830194"
+            class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+            <span class="fa fa-play"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section ftco-about ftco-no-pt img">
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col-md-12 about-intro">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch">
+              <div class="img d-flex w-100 align-items-center justify-content-center"
+                style="background-image:url(images/about-1.jpg);">
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-5 py-5">
+              <div class="row justify-content-start pb-3">
+                <div class="col-md-12 heading-section ">
+                  <span class="subheading">{{language.home_about_us}}</span>
+                  <h2 class="mb-4">{{language.home_about_stt}}</h2>
+                  <p>{{language.home_about_stt1}}</p>
+                  <p><a href="#" class="btn btn-primary">{{language.home_about_book}}</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 10%; width: 100%;">
+    <div class="modal-content" style="margin: 0 auto; ">
+      <iframe width="600px" height="315" src="https://www.youtube.com/embed/Qd3JrJcW1C8?si=36rinz7DRoV93FFz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+</div>

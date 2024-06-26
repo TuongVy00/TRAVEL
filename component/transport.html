@@ -1,0 +1,120 @@
+<div ng-controller="TourDetailController">
+
+  <div class=" js-fullheight" style="background-image: url('images/bg_5.jpg');height: 50rem; ">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+        <div class="col-md-7 " style="margin-top: 10rem;">
+          <span class="subheading">{{language.home_welcome}}</span>
+          <h1 class="mb-4">{{language.home_stt}}</h1>
+          <p class="caps">{{language.home_wc}}</p>
+          <p class="mb-4">{{ today.name}}, {{today.location}}, <span style="color: rgb(141, 141, 227);">{{today.status}}</span> , {{today.C}} độ C </p>
+        </div>
+        <a data-toggle="modal" data-target="#exampleModal"
+          class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+          <span class="fa fa-play"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SECTION -->
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="container-fluid ">
+          <div class="row ">
+            <div class="col-md-7 ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img id="mainImage" class="img-fluid main-image animated" ng-src="{{transport.images[1]}}"
+                      alt="Image">
+
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <div class="container" style="display: flex; justify-content: space-evenly;">
+                      <div class="col thumbnail-column" ng-repeat="item in transport.images">
+                        <img class="img-fluid thumbnail-image" ng-src="{{item}}" alt="Thumbnail {{$index + 1}}"
+                          ng-click="changeImage(item)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-5 right-column">
+
+
+              <div class="col-md-10">
+                <div class="product-details">
+                  <h2 class="product-name">{{transport.title}}</h2>
+                  <div>
+                    <div class="product-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-o"></i>
+                    </div>
+                    <a class="review-link" href="#">10 Đánh giá | Thêm đánh giá</a>
+                  </div>
+                  <div>
+                    <h3 class="product-price">{{tour.price}} <del class="product-old-price">{{tour.price * 1.2}} </del>
+                    </h3>
+                    <span class="product-available">còn 8 vé</span>
+                  </div>
+                  <p>{{ transport.description }}</p>
+                  <ul class="product-btns">
+                    <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> {{transport.phone}}</a></li>
+                  </ul>
+                  <ul class="product-btns">
+                    <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> {{transport.address}}</a></li>
+                  </ul>
+                  <!-- <div class="product-options">
+                        <label>
+                          Size
+                          <select class="input-select">
+                            <option value="0">X</option>
+                          </select>
+                        </label>
+                        <label>
+                          Color
+                          <select class="input-select">
+                            <option value="0">Red</option>
+                          </select>
+                        </label>
+                      </div> -->
+          
+
+    
+    
+    
+
+          <!-- /product tab -->
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    
+    <!-- /SECTION -->
+    
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>

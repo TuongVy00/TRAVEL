@@ -1,0 +1,43 @@
+
+<div class="container" >
+        <a class="navbar-brand" style="width: 25%;" href="index.html"><img style="width: 30%;" src="https://firebasestorage.googleapis.com/v0/b/travel-bee-e0b59.appspot.com/o/logo.png?alt=media&token=9b7bf685-a7ff-49d9-9413-abdeee4cb722" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item "><a href="index.html" class="nav-link" >{{language.home_home}}</a></li>
+                <li class="nav-item"><a href="#!tour" class="nav-link"  >Tour</a></li>
+                <li class="nav-item"><a href="#!contact" class="nav-link"  >{{language.home_contact}}</a></li>
+                <li ng-if="$root.token ==''" class="nav-item"><a href="#!login" class="nav-link"  >{{language.home_login}}</a></li>
+                <li ng-if="$root.token ==''" class="nav-item"><a href="#!register" class="nav-link"  >{{language.home_register}}</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href=""  ng-if="!!$root.token" id="navbarDropdown" role="button" data-toggle="dropdown" disable aria-haspopup="true" aria-expanded="false">
+                      <i class="fa-solid fa-gear" style="margin-right: 5px; font-size: 1rem;"></i>{{language.home_setting}}
+                    </a>
+                    <div class="dropdown-menu header-drops" aria-labelledby="navbarDropdown" style="background-color: rgba(0, 0, 0, 0.1);" >
+                      <a class="dropdown-item" href="#!changepass">{{language.home_changepass}}</a>
+                      <a class="dropdown-item" href="#!information">{{language.home_information}}</a>
+                      <a class="dropdown-item" href="#!history">{{language.home_history}}</a>
+                      <a class="dropdown-item" href="" ng-click="logout()">{{language.home_logout}}</a>
+
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href=""  id="navbarDropdown" role="button" data-toggle="dropdown" disable aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-language" style="margin-right: 5px; font-size: 1rem;"></i>{{language.home_language}}
+                  </a>
+                  <div class="dropdown-menu header-drops" aria-labelledby="navbarDropdown" style="background-color: rgba(0, 0, 0, 0.1);" >
+                    <a class="dropdown-item" href="" ng-click="changeLanguage('vn')"><img src="https://firebasestorage.googleapis.com/v0/b/travel-bee-e0b59.appspot.com/o/vietnam.png?alt=media&token=20990b21-b9dc-4e36-ad55-0527cd873a62" style="width:20px; margin-right: 5px;" alt="">Vietnamese</a>
+                    <a class="dropdown-item" href="" ng-click="changeLanguage('en')"><img src="https://firebasestorage.googleapis.com/v0/b/travel-bee-e0b59.appspot.com/o/united-kingdom.png?alt=media&token=53cf3229-0651-4732-be06-98e1a25f6157"style="width: 20px; margin-right: 5px;" alt="">English</a>
+                  </div>
+              </li>
+              <li  ng-if="!!$root.token" class="nav-item "><a href="index.html" style="color: orangered; font-weight: bold; " class="nav-link" >{{fullname}}</a></li>
+                
+            </ul>
+        </div>
+</div>
+
+<!-- END nav -->

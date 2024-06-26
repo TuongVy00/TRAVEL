@@ -1,0 +1,47 @@
+<section class=" hero-wrap-2 js-fullheight" style="background-image: url('images/bg_4.jpg');height: 40rem; background-color: rgba(0, green, blue, alpha);" >
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+        <div class="col-md-9  pb-5 text-center" style="margin-top: 30rem;" >
+           <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang Chủ <i class="fa fa-chevron-right"></i></a></span> <span>Lịch sử mua vé<i class="fa fa-chevron-right"></i></span></p>
+           <h1 class="mb-0 bread">Lịch Sử Mua Vé</h1>
+       </div>
+   </div>
+  </div>
+  </section>
+<section ng-controller="historyController">
+    <div class="container-ticket">
+        <div  ng-repeat="item in history" class="row ticket" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; margin-bottom: 20px;"  >
+            <div class="col-lg-9 body-ticket" style="background: url('{{item.plantour.tour.images.split(',')[5]}}') ; opacity: 0.9;">
+                <div class="col-lg-4" >
+                    <img src="{{item.plantour.tour.images.split(',')[4]}}" style="width: 100%; border-radius: 10px; height: 150px;" class="image-ticket" alt="">
+                </div>
+                <div class="col-lg-8" >
+                   <a href="#!inforuser/{{item.id}}" style="cursor: pointer;"> <h2 style="text-align: center; font-style: italic; color: #FF5B22;">{{item.plantour.tour.title}}</h2></a>
+                    <div class="body-content">
+                        <div style="text-align: center;">
+                            <ul style="list-style: none; text-align: left; font-weight: bold; color: black;  ">
+                                <li>Tên  : <span style="color: green;">{{item.account.fullname}}</span> </li>
+                                <li>Trạng thái : <span style="color:red;">{{item.status}}</span> </li>
+                                <li>Tổng tiền : <span style="color: #FF9209;">{{ item.price | currency: '' }} VNĐ</span></li>
+                            </ul>
+                        </div>
+                        <div style="text-align: right; color: black; font-weight: bold;">
+                            <span>Ngày đi : {{item.plantour.stardate |  date:'dd/MM/yyyy'}}</span>
+                            <br>
+                            <span>Ngày về : {{item.plantour.enddate |  date:'dd/MM/yyyy'}}</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 qrcode-ticket" >
+                <img src="{{item.qrcode}}" alt="" class="image-qr">
+            </div>
+        </div>
+        <div ng-if="history == ''" >
+            <h1 style="color: #E3651D; text-align: center;">Bạn chưa  mua vé tour nào cả ! <i class="fa-solid fa-face-sad-tear"></i> </h1>
+        </div>
+        
+    </div>
+</section>

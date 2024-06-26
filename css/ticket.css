@@ -1,0 +1,45 @@
+.container-ticket {
+	width: 60%;
+	margin: 10rem auto;
+}
+
+.ticket {
+	border-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.image-ticket {
+	width: 100%;
+	height: 80px;
+	border-radius: 10px;
+	margin-top: 5px;
+}
+
+.image-qr {
+	width: 80%;
+	padding: 5px;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+.body-ticket {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	background-color: antiquewhite;
+	border-radius: 5px 20px 20px 5px;
+}
+
+.body-content {
+	display: flex;
+	flex-wrap: nowrap;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+}
+
+.qrcode-ticket {
+	text-align: center;
+	border-radius: 20px 5px 5px 20px;
+	background-color: aliceblue;
+}

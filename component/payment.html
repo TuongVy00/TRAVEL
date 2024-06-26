@@ -1,0 +1,80 @@
+<div class=" js-fullheight" style="background-image: url('images/bg_5.jpg');height: 50rem; ">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+      <div class="col-md-7 " style="margin-top: 10rem;">
+        <span class="subheading">{{language.home_welcome}}</span>
+        <h1 class="mb-4">{{language.home_stt}}</h1>
+        <p class="caps">{{language.home_wc}}</p>
+        <p class="mb-4">{{ today.name}}, {{today.location}}, <span
+            style="color: rgb(141, 141, 227);">{{today.status}}</span> , {{today.C}} độ C </p>
+      </div>
+      <a data-toggle="modal" data-target="#exampleModal"
+        class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+        <span class="fa fa-play"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" ng-controller="paymentController" style="margin: 0 auto; width: 60%;">
+  <div class="form-container">
+    <h2 style="color: orangered; text-align: center;">{{language.payment_payment}}</h2>
+    <form name="formPayment" novalidate>
+      <div class="form-group">
+        <label for="cccd">{{language.payment_cccd}}</label>
+        <input type="text" class="form-control" name="txtcccd" ng-model="orders.cccd" ng-pattern="/^[0-9]{12}$/"  placeholder="{{language.payment_cccd}}" required>
+        <span ng-show="formPayment.txtcccd.$error.pattern" style="color: red; font-size: 15px;">CCCD chỉ được nhập đúng 12 số</span>
+        <span ng-show="formPayment.txtcccd.$error.required  &&  formPayment.txtcccd.$dirty" style="color: red; font-size: 15px;">CCCD không được bỏ trống</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" name="txtEmail" id="email" ng-model="orders.email"
+          placeholder="{{language.payment_nhapemail}}" required>
+        <span style="color: red; font-size: 15px;"
+          ng-show="formPayment.txtEmail.$dirty && formPayment.txtEmail.$error.email">Nhập sai định dạng
+          email</span>
+        <span style="color: red; font-size: 15px;"
+          ng-show="formPayment.txtEmail.$dirty && formPayment.txtEmail.$error.required">Email không được bỏ
+          trống</span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">{{language.payment_phone}}</label>
+        <input type="text" class="form-control" name="txtnumberphone" ng-model="orders.numberphone"
+          ng-pattern="/^[0-9]{10}$/" placeholder="{{language.payment_nhapsdt}}" required>
+        <span ng-show="formPayment.txtnumberphone.$error.pattern" style="color: red; font-size: 15px;">Số điện thoại sai định dạng</span>
+        <span ng-show="formPayment.txtnumberphone.$error.required && formPayment.txtnumberphone.$dirty" style="color: red; font-size: 15px;">Số điện thoại không được bỏ trống</span>
+      </div>
+      <div class="form-group">
+        <label for="member">{{language.payment_member}}</label>
+        <input type="number" class="form-control" name="txtmember" ng-change="memberChange()" ng-model="orders.member" min="0" id="member" placeholder="{{language.payment_numberof}}" required>
+        <span style="color: red; font-size: 15px;" ng-show="formPayment.txtmember.$error.min">Số lượng thành viên không được nhập
+          số âm.</span>
+        <span style="color: red; font-size: 15px;"
+          ng-show="formPayment.txtmember.$dirty && formPayment.txtmember.$error.required">Số lượng thành viên không được bỏ trống
+         </span>
+      </div>
+      <div class="form-group">
+        <label for="voucher">{{language.payment_voucher}} <i style="margin-top: -5px; color: red;" class="fa-solid fa-ticket"></i></label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="voucher"  ng-model="orders.voucher" placeholder="{{language.payment_intervoucher}}">
+          <div class="input-group-append">
+            <button class="btn btn-primary" ng-click="checkvoucher()" type="button">{{language.payment_check}}</button>
+          </div>
+        </div>
+        <span id="label-voucher"></span>
+      </div>
+      <div class="form-group">
+        <label for="member">{{language.payment_all}}</label>
+        <input type="text" style="color: red; font-weight: bold; border: none; outline:  none;" class="form-control" id="member" ng-model="orders.price | currency:'VNĐ ':0 " disabled placeholder="VND"
+          required>
+      </div>
+
+      <button ng-disabled="formPayment.$invalid" ng-click="payment()" style="width: 300px;" class="btn btn-primary btn-submit"><i style="font-size: 18px; margin: -20px 10px 0 0;" class="fa-brands fa-cc-visa"></i>{{language.payment_ok}}</button>
+    </form>
+  </div>
+</div>
+<hr>
+<hr>

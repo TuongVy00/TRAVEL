@@ -1,0 +1,499 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    height: 100%;
+    /* position: relative; */
+  }
+  header {
+    margin-bottom: 50px;
+  }
+  .img-content{
+  
+  }
+  nav {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .banner img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .chuchay {
+    background-color: rgb(0, 0, 0);
+    line-height: 50px;
+    font-size: larger;
+  }
+  .video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  .content {
+    text-align: center;
+  }
+  .jd-nav-bar {
+    color: #000;
+  }
+  .jd-nav-bar:hover {
+    color: rgb(255, 255, 255);
+    box-shadow: 1px;
+  }
+  /* .btn-hd {
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+  }
+  .btn-hd:hover {
+    background-color: rgb(226, 226, 226);
+    color: black;
+  } */
+  .content-product {
+    color: black;
+  }
+  .content-product:hover {
+    color: black;
+    text-decoration: none;
+  }
+  .product-content {
+    margin-bottom: 25px;
+  }
+  .slide {
+    margin-bottom: 10px;
+    background-color: rgb(237, 237, 237);
+  }
+  .information-product li {
+    margin: 10px;
+    line-height: 35px;
+    font-size: 20px;
+    list-style: none;
+  }
+  .ctsp {
+    margin: 10px;
+    width: 150px;
+  }
+  .ctsp:hover {
+    padding: 10px;
+    box-shadow: inset 5px;
+  }
+  footer .card {
+    background-color: black;
+  }
+  .footer-help {
+    color: white;
+  }
+  .imgproduct {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+  .footer-help:hover {
+    color: white;
+    text-decoration: none;
+  }
+  article li a {
+    color: rgb(255, 255, 255);
+  }
+  .btnnew {
+    background-color: black;
+    color: white;
+  }
+  .btnnew:hover {
+    background-color: rgb(226, 226, 226);
+    color: rgb(255, 255, 255);
+  }
+  .gearup {
+    width: 95%;
+  }
+  .gearup img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 2%;
+  }
+  .morenike {
+    width: 95%;
+  }
+  .morenike img {
+    width: 100%;
+    margin: 20px;
+  }
+  .title {
+    margin-left: 3%;
+  }
+  .btn-hd {
+    justify-items: center;
+    transform: translateY(-0%) translateX(-0%);
+    border: 1px solid #000;
+    overflow: hidden;
+    border-radius: 50px;
+    color: #000;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .btn-hd:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+  }
+  
+  .btn-hd:hover,
+  .btn-hd:active {
+    color: white;
+  }
+  .btn-hd:hover:after,
+  .btn-hd:active:after {
+    width: 100%;
+  }
+  .color {
+    margin: 10px;
+    height: 30px;
+    width: 30px;
+    list-style-type: none;
+    border-radius: 100%;
+    border: solid 1px;
+    border-color: gray;
+  }
+  a p {
+    color: black;
+  }
+  a p:hover {
+    color: black;
+    text-decoration: none;
+  }
+  .card {
+    background-color: #000;
+    width: 100%;
+    height: 110px;
+    position: relative;
+  }
+  .card img {
+    position: absolute;
+    display: block;
+    bottom: 2%;
+    left: 2%;
+    width: 96%;
+    height: 96%;
+    border-radius: 6px;
+    object-fit: cover;
+    opacity: 1;
+  }
+  .card .content {
+    backdrop-filter: blur(5px);
+    position: absolute;
+    display: none;
+    font-size: 100%;
+    font-family: "Sacramento", cursive;
+    color: rgb(255, 255, 255);
+    line-height: 0.8em;
+    top: 70%;
+    left: 75%;
+    line-height: 10%px;
+  }
+  
+  .card .in4 {
+    position: absolute;
+    font-size: 100%;
+    font-family: "Sacramento", cursive;
+    color: rgb(255, 255, 255);
+    line-height: 0.8em;
+    top: 10%;
+    left: 10%;
+    line-height: 10%px;
+    opacity: 0;
+  }
+  .card:hover img {
+    transition: 0.5s;
+    transition-delay: 0.3s;
+    opacity: 0.2;
+  }
+  .in4 a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 10px;
+  }
+  .card:hover .content {
+    backdrop-filter: blur(5px);
+    position: absolute;
+    display: block;
+  }
+  .card:hover .in4 {
+    transition: 3s;
+    opacity: 1;
+    display: block;
+  }
+  .imgbanner {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, transparent, rgb(0, 0, 0)),
+      url(Images/AAAABaTTdUspczXy_YMk6HiEMBWY2qY3D7aeNewW3ZaIsMhIb16T2FXXVmrFHXHxJNKs7_9-mGsZvrPboELynvKcPjT6t5yU08tXsuq9.jpg);
+  }
+  .imgbanner button {
+    background-color: white;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 85%;
+    left: 15%;
+  }
+  .imgbanner .headmovie {
+    position: absolute;
+    top: 55%;
+    left: 3%;
+    width: 96%;
+  }
+  .imgbanner a {
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 85%;
+    left: 5%;
+  }
+  .imgbanner a:hover {
+    text-shadow: 0 0px 20px var(--danger);
+  }
+  .thcard {
+    height: 240px;
+    width: 100%;
+  }
+  .ngang {
+    height: 180px;
+  }
+  
+  h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+  }
+  
+  .user-box {
+    position: relative;
+  }
+  
+  .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  .user-box input:focus ~ label,
+  .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: rgb(47, 255, 99);
+    font-size: 12px;
+  }
+  .formlogin {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .btn-hd-w {
+    border-radius: 4px;
+    width: 100%;
+    justify-items: center;
+    transform: translateY(-0%) translateX(-0%);
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    color: #ffffff;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .btn-hd-w:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+  }
+  
+  .btn-hd-w:hover,
+  .btn-hd-w:active {
+    color: rgb(0, 0, 0);
+  }
+  .btn-hd-w:hover:after,
+  .btn-hd-w:active:after {
+    width: 100%;
+  }
+  .card-th {
+    position: relative;
+    list-style: none;
+    gap: 30px;
+    width: 220px;
+    transition: 0.3s ease;
+  }
+  .card-th-th:before {
+    content: "";
+    display: block;
+    padding-bottom: 150%;
+    width: 100%;
+  }
+  .card-th-background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    background-size: 350px;
+    background-position: center;
+    filter: brightness(0.9) saturate(1) contrast(1);
+    transform-origin: bottom;
+    transform: scale(1) translateZ(0);
+    transition: 0.3s ease;
+  }
+  .card-th:hover .card-th-background {
+    transform: scale(1.15) translateZ(0);
+    background-size: 260px;
+  }
+  .card-th-container:hover .card-th:not(:hover) {
+    transform: scale(0.9);
+  }
+  .card-th-container:hover > .card-th:not(:hover) .card-th-background,
+  .card-th-container:hover > .card-th:not(:hover) .card-th-category {
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+  }
+  .content {
+    top: 50%;
+    left: 0;
+    padding: 25px;
+    position: absolute;
+  }
+  .card-th-category {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .card-th-heading {
+    color: #fff;
+    font-size: 25px;
+    line-height: 1;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  }
+  .lab-btn {
+  
+    margin: 10px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    line-height: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .lab-btn input {
+    border-radius: 5px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+  }
+  input[type=date]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+    display: none;
+  }
+  /* On mouse-over, add a grey background color */
+  .lab-btn:hover input ~ .checkmark {
+    
+    background-color: #ffffff;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .lab-btn input:checked ~ .checkmark {
+    border: solid 0.5px;
+    background-color: #000000;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .lab-btn input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .lab-btn .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

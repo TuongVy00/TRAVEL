@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="icon" type="image/png" href="/images/logo.png">
+	<title>Travel Bee</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+		integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookies/1.8.3/angular-cookies.min.js"
+		integrity="sha512-eM4WApD53FS2pv6fIgY4E2utWB82WSp3QPeoemIzA9VeOv9vQ1UzYBKIkXAwS71SCilEFpfkwtCZHj2uSS3keQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/ticket.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/information.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-storage-compat.js"></script>
+
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+
+
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="css1/slick.css" />
+	<link type="text/css" rel="stylesheet" href="css1/slick-theme.css" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="css1/nouislider.min.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css1/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+
+	<link type="text/css" rel="stylesheet" href="css1/style.css" />
+	<link rel="stylesheet" href="css/test3.css">
+
+	<link rel="stylesheet" href="css/modal.css">
+	<!-- <style>
+		@-webkit-keyframes snowflakes-fall {
+			0% {
+				top: -10%
+			}
+
+			100% {
+				top: 100%
+			}
+		}
+
+		@-webkit-keyframes snowflakes-shake {
+
+			0%,
+			100% {
+				-webkit-transform: translateX(0);
+				transform: translateX(0)
+			}
+
+			50% {
+				-webkit-transform: translateX(80px);
+				transform: translateX(80px)
+			}
+		}
+
+		@keyframes snowflakes-fall {
+			0% {
+				top: -10%
+			}
+
+			100% {
+				top: 100%
+			}
+		}
+
+		@keyframes snowflakes-shake {
+
+			0%,
+			100% {
+				transform: translateX(0)
+			}
+
+			50% {
+				transform: translateX(80px)
+			}
+		}
+
+		.snowflake {
+			color: #fff;
+			font-size: 1em;
+			font-family: Arial, sans-serif;
+			text-shadow: 0 0 5px #000;
+			position: fixed;
+			top: -10%;
+			z-index: 9999;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: default;
+			-webkit-animation-name: snowflakes-fall, snowflakes-shake;
+			-webkit-animation-duration: 10s, 3s;
+			-webkit-animation-timing-function: linear, ease-in-out;
+			-webkit-animation-iteration-count: infinite, infinite;
+			-webkit-animation-play-state: running, running;
+			animation-name: snowflakes-fall, snowflakes-shake;
+			animation-duration: 10s, 3s;
+			animation-timing-function: linear, ease-in-out;
+			animation-iteration-count: infinite, infinite;
+			animation-play-state: running, running;
+		}
+
+		.snowflake:nth-of-type(0) {
+			left: 1%;
+			-webkit-animation-delay: 0s, 0s;
+			animation-delay: 0s, 0s
+		}
+
+		.snowflake:nth-of-type(1) {
+			left: 10%;
+			-webkit-animation-delay: 1s, 1s;
+			animation-delay: 1s, 1s
+		}
+
+		.snowflake:nth-of-type(2) {
+			left: 20%;
+			-webkit-animation-delay: 6s, .5s;
+			animation-delay: 6s, .5s
+		}
+
+		.snowflake:nth-of-type(3) {
+			left: 30%;
+			-webkit-animation-delay: 4s, 2s;
+			animation-delay: 4s, 2s
+		}
+
+		.snowflake:nth-of-type(4) {
+			left: 40%;
+			-webkit-animation-delay: 2s, 2s;
+			animation-delay: 2s, 2s
+		}
+
+		.snowflake:nth-of-type(5) {
+			left: 50%;
+			-webkit-animation-delay: 8s, 3s;
+			animation-delay: 8s, 3s
+		}
+
+		.snowflake:nth-of-type(6) {
+			left: 60%;
+			-webkit-animation-delay: 6s, 2s;
+			animation-delay: 6s, 2s
+		}
+
+		.snowflake:nth-of-type(7) {
+			left: 70%;
+			-webkit-animation-delay: 2.5s, 1s;
+			animation-delay: 2.5s, 1s
+		}
+
+		.snowflake:nth-of-type(8) {
+			left: 80%;
+			-webkit-animation-delay: 1s, 0s;
+			animation-delay: 1s, 0s
+		}
+
+		.snowflake:nth-of-type(9) {
+			left: 90%;
+			-webkit-animation-delay: 3s, 1.5s;
+			animation-delay: 3s, 1.5s
+		}
+
+		.snowflake:nth-of-type(10) {
+			left: 25%;
+			-webkit-animation-delay: 2s, 0s;
+			animation-delay: 2s, 0s
+		}
+
+		.snowflake:nth-of-type(11) {
+			left: 65%;
+			-webkit-animation-delay: 4s, 2.5s;
+			animation-delay: 4s, 2.5s
+		}
+	</style> -->
+	<link rel="stylesheet" href="./css/checkbox-toggle.css">
+</head>
+
+
+
+<body ng-app="app" ng-controller="homeController">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"
+		ng-include="'./component/header.html'">
+	</nav>
+	<main ng-view></main>
+
+	<footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(images/bg_3.jpg);"
+		ng-include="'./component/footer.html'">
+	</footer>
+	<!-- <div class="snowflakes" aria-hidden="true">
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+		<div class="snowflake">❅</div>
+		<div class="snowflake">❆</div>
+	</div> -->
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+	<!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "162482383617088");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v18.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+	<script>
+
+
+		let app = angular.module("app", ['ngRoute', 'ngCookies']);
+		app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
+		app.controller("homeController", function ($scope, $rootScope, $http, $location) {
+			$rootScope.url = "http://localhost:8080"
+			$rootScope.fullname = ""
+			$rootScope.email = ""
+			$rootScope.token = ""
+			$rootScope.authorities = []
+			$scope.today = {}
+			$rootScope.history = []
+			$rootScope.toursfirst = []
+
+
+
+			$scope.logout = function () {
+				$http.get($rootScope.url + "/api/v1/auth/logout")
+					.then(response => {
+						$rootScope.fullname = ""
+						$rootScope.email = ""
+						$rootScope.token = ""
+						$rootScope.authorities = []
+						Swal.fire({
+							title: "Đăng xuất Thành Công",
+							width: 600,
+							icon: "success",
+							padding: "3em",
+							color: "#716add"
+							
+						});
+						$location.path('/main');
+					})
+					.catch(error => {
+
+					})
+			}
+
+			var firebaseConfig = {
+				apiKey: "AIzaSyBnSgLNQca9x6g5SFN8CU9YA1tBz5gGn6c",
+				authDomain: "travel-bee-e0b59.firebaseapp.com",
+				projectId: "travel-bee-e0b59",
+				storageBucket: "travel-bee-e0b59.appspot.com",
+				messagingSenderId: "991526403311",
+				appId: "1:991526403311:web:24e7a3ba76e7d0d769af1a",
+				measurementId: "G-DE29CFQQMY"
+			};
+			var config = firebase.initializeApp(firebaseConfig);
+
+			$rootScope.changeLanguage = function (language) {
+				if (language == 'vn') {
+					$rootScope.language = {
+						home_home: 'Trang Chủ',
+						home_contact: 'Liên Hệ',
+						home_login: 'Đăng Nhập',
+						home_register: 'Đăng Ký',
+						home_setting: 'Cài Đặt',
+						home_changepass: "Đổi mật khẩu",
+						home_information: "Thông tin tài khoản",
+						home_history: "Lịch sử mua vé",
+						home_logout: "Đăng Xuất",
+						home_language: "Ngôn ngữ",
+						home_contact_address: 'Địa Chỉ',
+						home_welcome: "Chào mừng bạn đến với Travel Bee",
+						home_tourhot: "Tour Hot",
+						home_wc: "Travel Bee xin chào",
+						home_stt: "Đã đến lúc bắt đầu cuộc phiêu lưu của bạn",
+						home_tour_title: "Điểm Đến Du Lịch Phổ Biến",
+						home_about_us: "Về Chúng Tôi",
+						home_about_stt: "Hãy biến chuyến tham quan của bạn trở nên đáng nhớ và an toàn với chúng tôi",
+						home_about_stt1: "Xa xa, đằng sau những ngọn núi chữ, xa những đất nước Vokalia và Consonantia, có những văn bản mù quáng. Bị tách ra, họ sống ở Bookmarksgrove ngay bờ biển Semantics, một đại dương ngôn ngữ rộng lớn.",
+						home_about_book: "Đặt Vé Điểm Đến Của Bạn",
+						login_stt: "Chào mừng bạn trở lại",
+						login_stt1: "Nhập vào Email và Mật khẩu của bạn để đăng nhập",
+						login_stt2: "Tài khảon email",
+						login_stt3: "Mật khẩu",
+						login_stt4: "Ghi nhớ tôi",
+						login_stt5: "Đăng nhập",
+						login_stt6: "Bạn đã có tài khoản",
+						login_stt7: "Đăng ký",
+						login_stt8: "Hoặc",
+						change_pass: "Nhập email",
+						change_pass1: "Nhập mật khẩu",
+						change_pass2: "Thay đổi",
+						change_information: "Hoàn thành",
+						change_information1: "Mật khẩu",
+						change_information2: "Chúng tôi sẽ không bao giờ chia sẻ email của bạn với bất kỳ ai khác.",
+						tour_search: "Tìm Kiếm Tên Địa Điểm",
+						tour_checkin: "Ngày Bắt Đầu",
+						tour_checkout: "Ngày Kết Thúc",
+						tour_price: "Giới Hạn Giá",
+						tour_searchh: "Tìm Kiếm",
+						tour_start: "Trang Chủ",
+						tour_list: "Danh sách Tour",
+						tour_strat1: "Danh Sách Chuyến Tham Quan Du Lịch",
+						tour_stt: "CHÚNG TÔI LÀ ĐẠI LÝ DU LỊCH PACIFIC",
+						tour_stt1: "Chúng tôi có thể quản lý tòa nhà mơ ước của bạn Một dòng sông nhỏ mang tên Duden chảy ngang qua nơi họ.",
+						tour_stt2: "Yêu Cầu Báo Giá",
+						tour_page: "Trang",
+						contact_address: "Địa Chỉ",
+						contact_phone: "Điện Thoại Liên Hệ",
+						contact_question: "Hỏi Đáp",
+						contact_address_sub: "136 Nguyễn Lương Bằng, Hòa Khánh, Liên Chiểu , Đà Nẵng ",
+						contact_open_access: "Mở liên kết",
+						contact_title: "Tiêu đề",
+						contact_content: "Nội dung",
+						contact_send: "Gửi Phản Hồi",
+						contact_title: 'Liên Hệ',
+						footer_infor: "Thông tin liên hệ",
+						footer_Partner: "Đối tác",
+						footer_stt1: " là website về dịch vụ tour du lịch đến từ sinh viên trường",
+						change_pass: "Nhập email",
+						change_pass1: "Nhập mật khẩu",
+						change_pass2: "Thay đổi",
+						change_information: "Hoàn thành",
+						change_information1: "Mật khẩu",
+						change_information2: "Chúng tôi sẽ không bao giờ chia sẻ email của bạn với bất kỳ ai khác.",
+						register_title: "Đăng Ký Ngay",
+						register_or: "hoặc",
+						register_name: "Họ và tên",
+						register_send: "Gửi",
+						register_us: "Tên tài khoản",
+						register_password: "Mật khẩu",
+						register_cfpassword: "Xác nhận mật khẩu",
+						register_ask: "Bạn đã có tài khoản?",
+						register_signin: "Đăng nhập",
+						register_code: "Mã xác nhận",
+						register_acp: "Tôi đồng ý với các điều khoản.",
+						register_wellcome: "Sử dụng miễn phí các biểu mẫu tuyệt vời này để đăng nhập hoặc tạo tài khoản mới trong dự án của bạn.",
+						register_wc: "Chào Mừng Bạn Đến Với TravelBee",
+						register_signup: "Đăng Ký",
+						changepass_cu: "Mật khẩu cũ",
+						changepass_title: "Đổi Mật Khẩu",
+						changepass_new: "Mật khẩu mới",
+						changepass_new2: "Xác nhận mật khẩu mới",
+						changepass_save: "Thay đổi",
+						information_title: "Thông Tin Tài Khoản",
+						information_us: "Tên tài khoản",
+						information_name: "Họ và tên",
+						information_brithday: "Ngày sinh",
+						information_create: "Ngày tạo",
+						information_update: "Ngày cập nhật",
+						information_save: "Lưu",
+						information_share: "Chia sẻ với",
+						information_chosse: "Chọn file",
+						payment_payment: "Thanh Toán",
+						payment_cccd: "CCCD",
+						payment_nhapemail: "Nhập email",
+						payment_phone: "Số điên thoại",
+						payment_nhapsdt: "Nhập SDT",
+						payment_member: "Thành viên",
+						payment_numberof: "Số lượng thành viên",
+						payment_voucher: "Mã giảm giá",
+						payment_check: "Kiểm tra",
+						payment_intervoucher: "Nhập mã giảm giá",
+						payment_all: "Thành tiền",
+						payment_pm: "Hình thức thanh toán",
+						payment_ok: "Thanh toán",
+						in4_payment: "Thanh Toán",
+						in4_cccd: "CCCD",
+						in4_nhapemail: "Nhập email",
+						in4_phone: "Số điên thoại",
+						in4_nhapsdt: "Nhập SDT",
+						in4_member: "Thành viên",
+						in4_numberof: "Số lượng thành viên",
+						in4_voucher: "Mã giảm giá",
+						in4_check: "Kiểm tra",
+						in4_intervoucher: "Nhập mã giảm giá",
+						in4_all: "Thành tiền",
+						in4_pm: "Hình thức thanh toán",
+						in4_ok: "Thanh toán",
+						in4_nametour: "Tên Chuyến Đi",
+						in4_startday: "Ngày Khời Hành",
+						in4_endday: "Ngày Kết Thúc",
+						in4_fullname: "Họ và Tên",
+						in4_address: "Địa Chỉ",
+						in4_note: "Ghi Chú",
+						in4_passport: "CCCD"
+					}
+				} else {
+					$rootScope.language = {
+						home_home: 'Home',
+						home_contact: 'Contact',
+						home_login: 'Login',
+						home_register: 'Register',
+						home_setting: 'Setting',
+						home_changepass: "Change Password",
+						home_information: "Account Information",
+						home_history: "Ticket History",
+						home_logout: "Logout",
+						home_language: "Language",
+						home_contact_address: 'Address',
+						home_welcome: "Wellcom To Travel Bee",
+						home_tourhot: "Tour Hot",
+						home_wc: "Wellcome to Pacific",
+						home_stt: "It's time to start your adventure",
+						home_tour_title: "Popular Travel Destinations",
+						home_about_us: "About Us",
+						home_about_stt: "Make Your Tour Memorable and Safe With Us",
+						home_about_stt1: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
+						home_about_book: "Book Your Destination",
+						login_stt: "Wellcome Back",
+						login_stt1: "Enter your email and password to sign in",
+						login_stt2: "Email",
+						login_stt3: "Password",
+						login_stt4: "Remember me",
+						login_stt5: "Sign in",
+						login_stt6: "Do you have an account",
+						login_stt7: "Sign up",
+						login_stt8: "Or",
+						change_pass: "Enter email",
+						change_pass1: "Enter password",
+						change_pass2: "Change",
+						change_information: "Submit",
+						change_information1: "Password",
+						change_information2: "We'll never share your email with anyone else.",
+						tour_search: "Search place",
+						tour_checkin: "CHECK-IN DATE",
+						tour_checkout: "CHECK-OUT DATE",
+						tour_price: "PRICE LIMIT",
+						tour_searchh: "Search",
+						tour_start: "Home",
+						tour_list: "Tour List",
+						tour_strat1: "Tour List",
+						tour_stt: "WE ARE PACIFIC A TRAVEL AGENCY",
+						tour_stt1: "We can manage your dream building A small river named Duden flows by their place",
+						tour_stt2: "Ask For A Quote",
+						tour_page: "Page",
+						contact_address: "Address",
+						contact_phone: "Hotline PhoneNumber",
+						contact_question: "Question",
+						contact_address_sub: "136 Nguyen Luong Bang Street, Hoa Khanh, Lien Chieu, Da Nang",
+						contact_open_access: "Open Access",
+						contact_title: "Title",
+						contact_content: "Content",
+						contact_send: "Send Feedback",
+						contact_title: 'Contact',
+						footer_infor: "Information Contact",
+						footer_Partner: "Partner",
+						footer_stt1: "is a website about tour services from school students",
+						change_pass: "Enter email",
+						change_pass1: "Enter password",
+						change_pass2: "Change",
+						change_information: "Submit",
+						change_information1: "Password",
+						change_information2: "We'll never share your email with anyone else.",
+						register_title: "Register with",
+						register_or: "or",
+						register_name: "Name",
+						register_us: "Username",
+						register_password: "Password",
+						register_send: "Gửi",
+						register_cfpassword: "Confirm Password",
+						register_ask: "Already have an account?",
+						register_signin: "Signin",
+						register_acp: "I agree the Terms and Conditions",
+						register_wellcome: "Use these awesome forms to login or create new account in your project for free.",
+						register_wc: "Wellcome",
+						register_signup: "Sign Up",
+						register_code: "Code",
+						changepass_title: "Change Password",
+						changepass_cu: "Old Password",
+						changepass_new: "New Password",
+						changepass_new2: "Confirm Password",
+						changepass_save: "Save",
+						information_title: "Account Information",
+						information_us: "Username",
+						information_name: "Fullname",
+						information_brithday: "Brithday",
+						information_create: "Date create",
+						information_update: "Date update",
+						information_save: "Save",
+						information_share: "Share with",
+						information_chosse: "Chosse file",
+						payment_payment: "Payment",
+						payment_cccd: "Citizen Identification Card",
+						payment_nhapemail: "Enter email",
+						payment_phone: "Phone",
+						payment_nhapsdt: "Enter phone number",
+						payment_member: "Member",
+						payment_check: "Check",
+						payment_numberof: "Number of member",
+						payment_voucher: "Voucher",
+						payment_intervoucher: "Enter voucher",
+						payment_all: "Money",
+						payment_pm: "Payments",
+						payment_ok: "Payment",
+						in4_payment: "Payment",
+						in4_cccd: "Citizen Identification Card",
+						in4_nhapemail: "Enter email",
+						in4_phone: "Phone",
+						in4_nhapsdt: "Enter phone number",
+						in4_member: "Member",
+						in4_check: "Check",
+						in4_numberof: "Number of member",
+						in4_voucher: "Voucher",
+						in4_intervoucher: "Enter voucher",
+						in4_all: "Money",
+						in4_pm: "Payments",
+						in4_ok: "Payment",
+						in4_nametour: "Name Tour",
+						in4_startday: "Start Day",
+						in4_endday: "End Day",
+						in4_fullname: "Full Name",
+						in4_address: "Address",
+						in4_note: "Note",
+						in4_passport: "Citizen Identification Card"
+					}
+
+				}
+			}
+			$rootScope.changeLanguage('vn')
+
+			$rootScope.showpass = function () {
+				const passwordInputs = document.querySelectorAll('.pass');
+				const toggleButtons = document.querySelectorAll('.togglePassword');
+				passwordInputs.forEach(function (input, index) {
+					if (input.type === 'password') {
+						input.type = 'text';
+						toggleButtons[index].innerHTML = '<i class="fa-solid fa-eye"></i>'
+					} else {
+						input.type = 'password';
+						toggleButtons[index].innerHTML = '<i class="fa-solid fa-eye-slash"></i>'
+					}
+				});
+			};
+
+			let now = new Date().getHours()
+			function Hello() {
+				if (now > 6 && now < 18) {
+					Swal.fire({
+						position: "top-end",
+						icon : 'success',
+						title: "Chào Buổi Sáng!",
+						showConfirmButton: false,
+						timer: 1500
+					});
+				} else {
+					Swal.fire({
+						position: "top-end",
+						icon : 'success',
+						title: "Chào Buổi Tối!",
+						showConfirmButton: false,
+						timer: 1500
+					});
+				}
+			}
+			setTimeout(function(){
+				Hello()
+			},1000)
+		})
+
+
+
+	</script>
+
+
+	<script src="js/angular/mainController.js"></script>
+	<script src="js/angular/loginController.js"></script>
+
+	<script src="js/angular/registerController.js"></script>
+	<script src="js/angular/changepassController.js"></script>
+
+	<script src="js/angular/tourController.js"></script>
+	<script src="js/angular/feedbackController.js"></script>
+	<script src="js/angular/historyController.js"></script>
+	<script src="js/angular/inforUserController.js"></script>
+
+	<script src="js/angular/tourdetailController.js"></script>
+	<script src="js/angular/paymentController.js"></script>
+	<script src="js/angular/inforUser.js"></script>
+	<script src="js/angular/informationController.js"></script>
+	<script src="js/angular/qrcodepaymentController.js"></script>
+	<script src="js/customjs/login.js"></script>
+	<script src="js/angular/route.js"></script>
+	<script src="js/angular/mainController.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
+
+	<script src="js/jquery.min.js"></script>
+	<!-- js tour -->
+
+	<script src="js1/slick.min.js"></script>
+	<script src="js1/nouislider.min.js"></script>
+	<script src="js1/jquery.zoom.min.js"></script>
+	<script src="js1/main.js"></script>
+	<script src="js/image.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<div ng-controller="TourDetailController">
+
+  <div class=" js-fullheight" style="background-image: url('images/bg_5.jpg');height: 50rem; ">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+        <div class="col-md-7 " style="margin-top: 10rem;">
+          <span class="subheading">{{language.home_welcome}}</span>
+          <h1 class="mb-4">{{language.home_stt}}</h1>
+          <p class="caps">{{language.home_wc}}</p>= 
+        </div>
+        <a data-toggle="modal" data-target="#exampleModal"
+          class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+          <span class="fa fa-play"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SECTION -->
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="container-fluid ">
+          <div class="row ">
+            <div class="col-md-7 ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <img id="mainImage" class="img-fluid main-image animated" ng-src="{{tour.images[0]}}" alt="Image">
+
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <div class="container" style="display: flex; justify-content: space-evenly;">
+                      <div class="col thumbnail-column" ng-repeat="item in tour.images">
+                        <img class="img-fluid thumbnail-image" ng-src="{{item}}" alt="Thumbnail {{$index + 1}}"
+                          ng-click="changeImage(item)">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-5 right-column">
+
+
+              <div class="col-md-10">
+                <div class="product-details">
+                  <h2 class="product-name">{{tour.title}}</h2>
+                  <div>
+                    <i class="fa fa-heart" ng-click="updateLike()"></i>
+                    
+                    <div style="display: inline;">{{likeCount}} likes</div>
+                  </div>
+                  <div>
+                    <h3 class="product-price">{{tour.price}} <del class="product-old-price">{{tour.price * 1.2}} </del>
+                    </h3>
+                    <span class="product-available">còn 8 vé</span>
+                  </div>
+
+                  <p>{{ tour.description }}</p>
+
+                
+
+                  <br>
+                  <select ng-if="plantour && plantour.length > 0" class="form-control" id=""
+                    style="margin-bottom: 10px; outline: none; border-radius: 10px;" name="selectedPlantour">
+                    <option ng-repeat="item in plantour" value="{{item.id}}">{{item.stardate | date:'dd/MM/yyyy'}} -
+                      {{item.enddate | date:'dd/MM/yyyy'}}</option>
+                  </select>
+
+
+
+
+                  <div class="add-to-cart">
+                    <button ng-click="payment()" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> đặt ngay
+                    </button>
+                  </div>
+
+                  <ul class="product-btns">
+                   
+                  </ul>
+
+                  <ul class="product-links">
+                    <li>danh mục:</li>
+                    <li><a href="#">Tour nước ngoài</a></li>
+
+
+                  </ul>
+
+                  <ul class="product-links">
+                    <li>Share:</li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="row">
+        <p  ng-bind-html="plantour[0].description | unsafe" ></p>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Product details -->
+
+    <!-- /Product details -->
+
+    <!-- Product tab -->
+    <div class="col-md-12">
+      <div id="product-tab">
+        <!-- product tab nav -->
+        <ul class="tab-nav">
+          <li ng-class="{ 'active': isActiveTab(1) }"><a data-toggle="tab" href=""
+              ng-click="setActiveTab(1)">Bàn luận</a></li>
+
+        </ul>
+        <!-- /product tab nav -->
+
+        <!-- product tab content -->
+        <div class="tab-content">
+          <!-- tab1  -->
+          <!-- Nội dung của trang con -->
+
+
+          <!-- /tab1  -->
+
+
+          <!-- tab3  -->
+          <div id="tab3" class="tab-pane " ng-class="{ 'active': isActiveTab(1) }">
+            <div class="row">
+              <!-- Rating -->
+              <div class="col-md-3">
+
+              </div>
+              <!-- /Rating -->
+
+              <!-- Reviews -->
+              <div class="col-md-6">
+                <div id="reviews" class="reviews-container">
+                  <ul class="reviews" ng-repeat="cmt in comments">
+                    <li>
+                      <div class="review-heading">
+                        <h5 class="name"> {{cmt.account.fullname}}</h5>
+                        <p class="date">{{cmt.createdate}}</p>
+
+                      </div>
+                      <div class="review-body">
+                        <p>{{cmt.content}}</p>
+                      </div>
+                    </li>
+                    <hr>
+                  </ul>
+
+                </div>
+
+              </div>
+              <!-- /Reviews -->
+              <!-- Review Form -->
+              <div>
+                <div class="col-md-12">
+                  <div id="review-form">
+                    <form class="review-form">
+                      <input class="input" ng-model="contentComment" placeholder="Your Review"></input>
+                      <div class="input-rating">
+                        <!-- <span>Your Rating: </span>
+                        <div class="stars">
+                          <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
+                          <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
+                          <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
+                          <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
+                          <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+                        </div> -->
+                      </div>
+                      <button class="primary-btn" ng-click="saveComment()">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- /Review Form -->
+
+            </div>
+          </div>
+          <!-- /tab3  -->
+        </div>
+        <!-- /product tab content  -->
+      </div>
+    </div>
+    <!-- /product tab -->
+  </div>
+  <!-- /row -->
+</div>
+<!-- /container -->
+
+<!-- /SECTION -->
+
+<!-- Section -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="section-title text-center">
+          <h3 class="title">Có thể bạn quan tâm</h3>
+        </div>
+      </div>
+
+      <!-- product -->
+      <div class="col-md-3 col-xs-6" ng-repeat="tour in toursfirst" ng-if="$index < 4">
+        <div class="product">
+          <div class="product-img">
+            <img ng-src="{{ tour.images[3] }}" alt="" style="height: 170px;">
+            <div class="product-label">
+              <span class="sale">-10%</span>
+            </div>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name"><a href="#">{{tour.title}}</a></h3>
+            <h4 class="product-price">{{tour.price}} <del class="product-old-price">{{tour.price * 1.2}}</del></h4>
+            <div class="product-rating">
+            </div>
+            <div class="product-btns">
+              <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to
+                  wishlist</span></button>
+              <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to
+                  compare</span></button>
+              <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+            </div>
+          </div>
+          <div class="add-to-cart">
+            <a href="#!tourdetail/{{tour.id}}"><button class="add-to-cart-btn"> <i class="fa fa-shopping-cart"></i> Xem
+                tour</button></a>
+
+          </div>
+        </div>
+      </div>
+      <!-- /product -->
+
+
+
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
+</div>
+<!-- /Section -->
+
+
+</div>

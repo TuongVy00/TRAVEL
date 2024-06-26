@@ -1,0 +1,20 @@
+<div class="row" ng-controller="qrcodepaymentController"
+    style="display: flex; flex-flow: column; justify-content: center; align-items: center; background: url('https://www.bordersofadventure.com/wp-content/uploads/2020/04/Coastline-Railey-Thailand.jpg') no-repeat;">
+    <div style="text-align: center; margin: 10%;">
+        <h5 style="color: white; font-weight: 300;">Mở App Ngân hàng, quét mã QRCode và nhập số tiền cần chuyển <span style="color: #F94C10; font-weight: bold;">{{ orders.price | currency:'':0 }} VNĐ</span></h5>
+        <h5 style="color: white;">
+            Nội dung chuyển khoản:
+            <span id="bankcontent" style="font-style: 30px; color:#F94C10"></span>
+            <button class="btn btn-success" ng-click="copyToClipboard()"><i class="fa-solid fa-copy"></i>Copy</button>
+        </h5>
+
+        <img style="border-radius: 10px; width: 300px;"
+            src="../images/qrcodepayment.png"
+            alt="">
+        <h6 class="check" style="color: white; margin-top: 10px;">Thời gian thanh toán của bạn còn lại : <span id="time"
+                style="color: red;"> {{check}} </span> giây</h6>
+    </div>
+    <!-- src="https://img.vietqr.io/image/970416-10971451-compact.png?amount={{m}}&addInfo={{random}}" -->
+
+
+</div>

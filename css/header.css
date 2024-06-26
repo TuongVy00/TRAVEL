@@ -1,0 +1,9 @@
+
+.header-drops a{
+    color:white;
+}
+.header-drops a:hover{
+    color: orangered;
+    transition: all linear 0.1s;
+    transform: scale(1.01);
+}

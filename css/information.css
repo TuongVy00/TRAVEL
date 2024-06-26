@@ -1,0 +1,27 @@
+.image-avatar{
+    width: 50%;
+    margin: 0 auto;
+   
+}
+.image-avatar img{
+    width: 100%;
+    border-radius: 50%;
+}
+.title-infor{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    width: 100%;
+
+}
+.qr-profile{
+    text-align: center;
+}
+.social-profile{
+    text-align: center;
+}
+.social-profile i{
+    font-size: 20px;
+    margin-right: 10px;
+}

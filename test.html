@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = 1;
+        let loop = setInterval(() => {
+            alert(a++)
+            if(a > 5 ){
+                clearInterval(loop)
+            }
+        }, 1000);
+
+
+        $http.post($rootScope.url + "/api/v1/orders/save", $scope.orders,
+                        {
+                            headers: {
+                                'Authorization': 'Bearer ' + $rootScope.token
+                            }
+                        }).then(response => {
+                            if (response.data.voucher != null && response.data.voucher != undefined && response.data.voucher != '' && response.data.voucher == 'Không có') {
+                                $scope.updateUseVoucher(response.data.voucher);
+                            }
+                            
+                            $rootScope.history.push(response.data);
+                            $scope.id = response.data.id;
+                            $http.post($rootScope.url + "/api/v1/payment/save?name=" + $rootScope.fullname + "&id=" + $scope.id + "&money=" + $scope.m + "&content=" + contents)
+                                .then(response => {
+                                    $location.path("/inforuser/" + $scope.id);
+
+                                }).catch(error => {                                 
+                                });
+                            paymentComplete =true
+
+                        }).catch(error => {                          
+                        });
+    </script>
+</body>
+</html>
