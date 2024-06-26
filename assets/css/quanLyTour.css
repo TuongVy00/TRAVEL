@@ -1,0 +1,286 @@
+/*css nut them tour*/
+button {
+    margin: 20px;
+}
+
+.custom-btn {
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 6px 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+
+    outline: none;
+}
+
+/* 1 */
+.btn-1 {
+    background: #3768ee;
+    border: none;
+    text-align: center;
+}
+
+.btn-1:hover {
+    background: #2c5ce1;
+    color: rgb(193, 193, 251);
+}
+
+/* end css nut them tour*/
+
+
+/*css thay doi thong tin tour*/
+h1 {
+    text-align: center;
+    color: #a8a8a8;
+    text-shadow: 1px 1px 0 white;
+}
+
+h4 {
+    text-align: center;
+}
+
+form {
+    width: 190%;
+    text-align: center;
+    margin: auto;
+    margin-left: 30px;
+}
+
+form input,
+form textarea,
+#input-option,
+#input-date {
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-family: "Merriweather", sans-serif;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    resize: none;
+}
+
+form input:focus,
+form textarea:focus,
+#input-option:focus,
+#input-date:focus {
+    -moz-box-shadow: 0 0px 2px #e74c3c !important;
+    -webkit-box-shadow: 0 0px 2px #e74c3c !important;
+    box-shadow: 0 0px 2px #e74c3c !important;
+}
+
+form #input-submit {
+    color: white;
+    background: #e74c3c;
+    cursor: pointer;
+}
+
+form #input-submit:hover {
+    -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+    -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+    box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+
+form textarea {
+    height: 126px;
+}
+
+.half {
+    float: left;
+    width: 48%;
+    margin-bottom: 1em;
+}
+
+.right {
+    width: 50%;
+}
+
+.left {
+    margin-right: 2%;
+}
+
+@media (max-width: 480px) {
+    .half {
+        width: 100%;
+        float: none;
+        margin-bottom: 0;
+    }
+}
+
+/* Clearfix */
+.cf:before,
+.cf:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/* Ban đầu là màu xám */
+select:default {
+    color: gray;
+}
+
+/* Khi được chọn (valid) thì chuyển màu đen */
+select:valid {
+    color: black;
+}
+
+/*end css thay doi thong tin tour*/
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-sm,
+.navbar>.container-md,
+.navbar>.container-lg,
+.navbar>.container-xl,
+.navbar>.container-xxl {
+    border-radius: 5px;
+    background-color: #f3f1f2;
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 280px;
+}
+
+#navbarBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.station {
+    margin: 20px 20px 5px 0px;
+    color: gray;
+    padding-left: 16px;
+    display: flex;
+}
+.buttonform{
+    border: 0;
+    outline: 0;
+    padding: 1em;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    display: block;
+    width: 100%;
+    background-color: #e74c3c;
+    margin-top: 1em;
+    font-family: "Merriweather", sans-serif;
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    resize: none;
+
+}
+.buttonform:hover{
+    outline: 1;
+    background-color: #ba5959;
+}
+/* Đặt container cho các radio buttons */
+
+  
+
+.radio-container {
+    display: flex;
+    margin-top: 20px;
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    margin-bottom: 20px; /* Khoảng cách giữa các dòng, điều chỉnh theo ý muốn */
+  }
+  
+  /* Đặt nhãn và radio buttons */
+  .radio-container label,
+  .radio-container input[type="radio"] {
+    margin-right: 20px; /* Khoảng cách giữa label và radio */
+  }
+  
+  .radio-container label{
+    font-family: "Merriweather", sans-serif;
+    font-size: 16px;
+  }
+  /* Căn chỉnh nhãn cho trạng thái */
+  .radio-container .form-check-label {
+    min-width: 100px; /* Đặt chiều rộng tối thiểu cho nhãn */
+  }
+  
+  /* Căn chỉnh nút submit */
+  button[type="submit"] {
+    width: 100%; /* Chiều rộng nút bằng với container */
+    height: 53px; /* Chiều cao nút, điều chỉnh theo ý muốn */
+    margin-top: 20px; /* Khoảng cách trên nút submit */
+  }
+  .form-check:not(.form-switch) .form-check-input[type="radio"]{
+    margin-top: 26px;
+    position: relative;
+
+  }
+  .radioo{ 
+    margin-left: -30px !important;
+  }
+  .abc{ 
+    margin-left: 100px !important;
+  }
+ /* Tùy chỉnh radio button */
+.form-check-input {
+    /* Ẩn radio button mặc định */
+    opacity: 0;
+    /* Vị trí tuyệt đối để đè lên pseudo-element sau đó */
+    position: absolute;
+  }
+  
+  /* Tạo pseudo-element để hiển thị radio button tùy chỉnh */
+  .form-check-input + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #ddd; /* Màu viền không được chọn */
+    background-color: #fff; /* Màu nền không được chọn */
+    /* Đặt vị trí tương đối để căn chỉnh với label */
+    position: relative;
+    top: 4px;
+  }
+  
+  /* Khi radio button được chọn, thay đổi màu của pseudo-element */
+  .form-check-input:checked + label::before {
+    border-color: rgba(255, 68, 0, 0.692); /* Màu viền khi được chọn */
+    background-color: rgba(255, 68, 0, 0.696); /* Màu nền khi được chọn */
+  }
+  
+  /* Tùy chỉnh thêm cho trạng thái khi được chọn, ví dụ thêm dấu kiểm */
+  .form-check-input:checked + label::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff; /* Màu của dấu kiểm (ở đây là trắng) */
+    /* Căn giữa dấu kiểm trong viền */
+    position: absolute;
+    top: 7px;
+    left: 4px;
+  }
+  

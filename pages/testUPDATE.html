@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <title>
+            Quản lý địa điểm
+        </title>
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Nucleo Icons -->
+        <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+        <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+        <link href="../assets/css/quanLyTour.css" rel="stylesheet" />
+        <!-- CSS Files -->
+        <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+        <!-- jsfile -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+            integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookies/1.8.3/angular-cookies.min.js"
+            integrity="sha512-eM4WApD53FS2pv6fIgY4E2utWB82WSp3QPeoemIzA9VeOv9vQ1UzYBKIkXAwS71SCilEFpfkwtCZHj2uSS3keQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-storage-compat.js"></script>
+    
+    
+    </head>
+<body>
+    <div ng-app="yourApp" ng-controller="UpdateLocationController">
+        <form novalidate>
+          <input type="text" ng-model="formData.title" placeholder="Title">
+          <input type="text" ng-model="formData.address" placeholder="Address">
+          <input type="text" ng-model="formData.description" placeholder="Description">
+          <input type="number" ng-model="formData.latitude" placeholder="Latitude">
+          <input type="number" ng-model="formData.longitude" placeholder="Longitude">
+          <input type="text" ng-model="formData.email" placeholder="Email">
+          <label>
+            <input type="radio" ng-model="formData.isActive" value="true"> Active
+          </label>
+          <label>
+            <input type="radio" ng-model="formData.isActive" value="false"> Inactive
+          </label>
+      
+          <button type="button" ng-click="updateLocation()">Update Location</button>
+        </form>
+      </div>
+      <script>
+        // Define your module if you haven't already
+var app = angular.module('yourApp', []);
+
+// Controller
+app.controller('UpdateLocationController', function($scope, $http, $rootScope) {
+  // The rootScope token should be set upon user authentication
+  // Ensure it's being correctly set when the user logs in
+  $scope.formData = {}; // Khởi tạo formData
+  var id = 10;
+// Hàm để tải dữ liệu địa điểm
+$scope.loadLocationData = function() {
+  
+  var apiUrl = 'http://localhost:8080/api/v1/location/'+id; // URL của API để lấy dữ liệu
+  $http({
+    method: 'GET',
+    url: apiUrl,
+    headers: {
+      'Authorization': 'Bearer ' + $rootScope.token
+    }
+  })
+  .then(function(response) {
+    // Gán dữ liệu trả về từ API vào formData, bỏ qua các trường không cần thiết
+   
+    $scope.formData = response.data;
+    delete $scope.formData.isActive;
+    // Bỏ qua trường isActive và images
+  }, function(error) {
+    console.error('Error:', error);
+  });
+};
+
+// Gọi hàm để tải dữ liệu khi controller được khởi tạo
+$scope.loadLocationData();
+  $rootScope.token = 'your_token_here';
+
+  $scope.formData = {
+    id: id,
+    title: '',
+    address: '',
+    description: '',
+    latitude: null,
+    longitude: null,
+    email: '',
+  };
+
+  $scope.updateLocation = function() {
+    var dataToSend = angular.copy($scope.formData);
+  // Loại bỏ các trường không muốn gửi đi
+  delete dataToSend.isActive;
+    var apiUrl = 'http://localhost:8080/api/v1/location/update/' + $scope.formData.id;
+
+    $http({
+      method: 'PUT',
+      url: apiUrl,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0cnVvbmdudnBzMjQwODNAZnB0LmVkdS52biIsImlhdCI6MTcwMjk3OTU5MSwiZXhwIjoxNzAzMDYzNTkxfQ.nwRSmwQGzF_251WaDNF5Ix8XhUxY4PLnPUQyUPlnX6E'
+      },
+      data: $scope.formData
+    })
+    .then(function(response) {
+      console.log('Success:', response.data);
+      // Handle success response
+    }, function(error) {
+      console.error('Error:', error);
+      // Handle error response
+    });
+  };
+});
+
+      </script>
+</body>
+</html>

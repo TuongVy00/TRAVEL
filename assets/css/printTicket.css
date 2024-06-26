@@ -1,0 +1,26 @@
+#pdf-content {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* Thêm các quy tắc CSS tương ứng cho các phần khác của thông tin vé đặt chỗ */

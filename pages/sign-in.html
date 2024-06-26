@@ -1,0 +1,45 @@
+
+  <div class="container" style="width: 60%; margin: 0 auto; display: flex; justify-content: center;margin-top: 10%; " ng-controller="loginController">
+    <div class="row">
+      <div class="card-header pb-0 text-left bg-transparent">
+        <h3 class="font-weight-bolder  " style="text-align: center; color: orangered;">Quản Lý Travel Bee</h3>
+      </div>
+      <div class="card-body">
+        <form role="form" name="formlogin" novalidate>
+
+          <label>Email</label>
+          <div class="mb-3">
+            <input type="email" class="form-control" name="txtEmail" ng-model="login.email"
+              placeholder="Email" aria-label="Email" aria-describedby="email-addon" required>
+            <span style="color: red; font-size: 15px;"
+              ng-show="formlogin.txtEmail.$dirty && formlogin.txtEmail.$error.email">Nhập sai định dạng
+              email</span>
+            <span style="color: red; font-size: 15px;"
+              ng-show="formlogin.txtEmail.$dirty && formlogin.txtEmail.$error.required">Email không được bỏ
+              trống</span>
+          </div>
+
+          <label>Mật khẩu</label>
+          <div class="mb-3">
+            <input type="password" class="form-control" name="txtPassword" ng-model="login.password"
+              placeholder="Password" aria-label="Password" aria-describedby="password-addon" required>
+            <span style="color: red; font-size: 15px;"
+              ng-show="formlogin.txtPassword.$dirty && formlogin.txtPassword.$error.required">Password không
+              được bỏ trống</span>
+          </div>
+
+          <div class="form-check form-switch" style="margin-left: 30px;">
+            <input class="form-check-input" type="checkbox" id="rememberMe" ng-model="rememberMe" ng-change="onRememberClick()">
+            <label class="form-check-label" for="rememberMe">Nhớ mật khẩu</label>
+          </div>
+
+          <div class="text-center">
+            <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0" ng-click="submitForm()"
+              ng-disabled="formlogin.$invalid">Đăng Nhập</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+ 

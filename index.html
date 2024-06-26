@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png"
+    href="https://firebasestorage.googleapis.com/v0/b/travel-bee-e0b59.appspot.com/o/logo.png?alt=media&token=9b7bf685-a7ff-49d9-9413-abdeee4cb722">
+  <title>
+    Travel Bee
+  </title>
+  <!-- Sau đó thêm Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
+    integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cookies/1.8.3/angular-cookies.min.js"
+    integrity="sha512-eM4WApD53FS2pv6fIgY4E2utWB82WSp3QPeoemIzA9VeOv9vQ1UzYBKIkXAwS71SCilEFpfkwtCZHj2uSS3keQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.3.0/firebase-storage-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/super-build/ckeditor.js"></script>
+  <style>
+    .text-container {
+        overflow: hidden;
+        max-height: 6em; /* Giới hạn chiều cao để hiển thị 3 dòng văn bản */
+        position: relative;
+        transition: max-height 0.2s ease;
+        font-size: 10px;
+    }
+    .text-container.expanded {
+        max-height: none; /* Mở rộng để hiển thị toàn bộ văn bản */
+    }
+</style>
+</head>
+
+<body class="g-sidenav-show  bg-gray-100" ng-app="app" ng-controller="homeController">
+  <main ng-view></main>
+
+  <script>
+    let app = angular.module("app", ['ngRoute', 'ngCookies'])
+    app.filter('unsafe', function($sce) { return $sce.trustAsHtml; });
+    app.controller("homeController", function ($scope, $rootScope, $http, $location, $routeParams) {
+      $rootScope.token = ""
+      $rootScope.email = ""
+      $rootScope.authorities = []
+      $rootScope.fullname = ""
+      $rootScope.url = "http://localhost:8080"
+      $rootScope.voucherParam = []
+
+      var firebaseConfig = {
+        apiKey: "AIzaSyBnSgLNQca9x6g5SFN8CU9YA1tBz5gGn6c",
+        authDomain: "travel-bee-e0b59.firebaseapp.com",
+        projectId: "travel-bee-e0b59",
+        storageBucket: "travel-bee-e0b59.appspot.com",
+        messagingSenderId: "991526403311",
+        appId: "1:991526403311:web:24e7a3ba76e7d0d769af1a",
+        measurementId: "G-DE29CFQQMY"
+      };
+      var config = firebase.initializeApp(firebaseConfig);
+
+
+      $scope.logout = function () {
+        $http.get($rootScope.url + "/api/v1/auth/logout")
+          .then(response => {
+            $rootScope.fullname = ""
+            $rootScope.email = ""
+            $rootScope.token = ""
+            $rootScope.authorities = []
+            Swal.fire({
+              title: "Đăng xuất Thành Công",
+              width: 600,
+              icon: "success",
+              padding: "3em",
+              color: "#716add",
+              
+            });
+            $location.path('/login');
+          })
+          .catch(error => {
+              alert()
+          })
+      }
+
+
+
+    });
+
+   
+  </script>
+     
+  <script src="js/angular/myApp.js"></script>
+  <script src="js/angular/mainController.js"></script>
+  <script src="js/angular/feedBackController.js"></script>
+  <script src="js/angular/modalFeedback.js"></script>
+  <script src="js/angular/loginController.js"></script>
+  <script src="js/angular/voucherController.js"></script>
+  <script src="js/angular/CRUDVoucherController.js"></script>
+  <script src="js/table2excel.js"></script>
+  <script src="js/angular/quanLyTour.js"></script>
+  <script src="js/angular/thayDoiThongTinTour.js"></script>
+  <script src="js/angular/themtourdulich.js"></script>
+  <script src="js/angular/quanLyVe.js"></script>
+  <script src="js/angular/danhsachve.js"></script>
+  <script src="js/angular/TaKhoanController.js"></script>
+  <script src="js/angular/changeplantour.js"></script>
+ 
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
